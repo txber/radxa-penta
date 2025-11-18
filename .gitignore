@@ -1,3 +1,6 @@
 /cabin-out
 .clangd
 /scripts/.venv
+.python-version
+pyproject.toml
+uv.lock
