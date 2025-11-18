@@ -1,5 +1,5 @@
 # radxa-penta package
-All testing is done on a *RADXA Rock 5C v1.1*
+All testing is done on a *RADXA Rock 5C v1.1 Rockchip RK3588S*
 
 ### Reimplmentation of the [rockpi-penta](https://github.com/radxa/rockpi-penta) control program by radxa for the [RADXA Penta SATA Top Board](https://radxa.com/products/accessories/penta-sata-top-board).
 
