@@ -1,0 +1,10 @@
+---
+BasedOnStyle: LLVM
+AlwaysBreakTemplateDeclarations: Yes
+BreakBeforeBinaryOperators: NonAssignment
+Cpp11BracedListStyle: false
+IncludeBlocks: Regroup
+IndentPPDirectives: AfterHash
+PointerAlignment: Left
+QualifierAlignment: Left
+
