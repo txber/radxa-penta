@@ -1,0 +1,5 @@
+[package]
+name = "radxa-penta"
+version = "0.1.0"
+authors = ["txber <163423649+txber@users.noreply.github.com>"]
+edition = "20"
