@@ -2,4 +2,10 @@
 name = "radxa-penta"
 version = "0.1.0"
 authors = ["txber <163423649+txber@users.noreply.github.com>"]
-edition = "20"
+edition = "23"
+
+[profile]
+compdb = true
+
+[dependencies]
+lcdgfx = {tag = "1.1.6", git = "https://github.com/lexus2k/lcdgfx.git"}

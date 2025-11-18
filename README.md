@@ -30,4 +30,4 @@ clang-format and clang-tidy copied from [ken-matsui](https://github.com/ken-mats
 - [ ] Button navigation
 - [ ] Systemd integration with journal logging
 - [ ] SSD temperature monitoring
-
+- [ ] Publish as compliant deb
