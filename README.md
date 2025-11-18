@@ -38,7 +38,7 @@ clang-format and clang-tidy copied from [ken-matsui](https://github.com/ken-mats
 https://docs.radxa.com/en/rock5/rock5c/hardware-design/hardware-interface
 
 <details>
-<summary>40 PIN GPIO Header</summary>
+  <summary>40 PIN GPIO Header</summary>
 
   ### GPIO voltage
   
@@ -71,4 +71,73 @@ https://docs.radxa.com/en/rock5/rock5c/hardware-design/hardware-interface
   | 128 | SPI0_MISO_M1 | I2S1_MCLK_M0 |  |  |  | UART9_RTSN_M1 | GPIO4_A0 | 35 | 36 | GPIO4_A2 |  |  |  |  | I2S1_LRCK_M0 | SPI0_CLK_M1 | 130 |
   |  |  |  |  |  |  |  | SARADC_VIN2 | 37 | 38 | GPIO4_A5 | UART3_TX_M2 | I2C3_SDA_M2 |  |  | I2S1_SDI0_M0 |  | 133 |
   |  |  |  |  |  |  |  | GND | 39 | 40 | GPIO4_B1 | UART8_RX_M0 | I2C6_SCL_M3 |  | SPDIF1_TX_M1 | I2S1_SDO0_M0 | SPI0_CS1_M1 | 137 |
+
 </details>
+
+#### GPIO device info (libgpiod)
+
+<details>
+  <summary>Parsed output</summary>
+  
+  ##### gpiodetect
+  
+  ```console
+  radxa@rock-5c:~$ gpiodetect  
+  gpiochip0 [gpio0] (32 lines)
+  gpiochip1 [gpio1] (32 lines)
+  gpiochip2 [gpio2] (32 lines)
+  gpiochip3 [gpio3] (32 lines)
+  gpiochip4 [gpio4] (32 lines)
+  gpiochip5 [rk806-gpio] (3 lines)
+  ```
+  ##### gpioinfo
+  
+  ```console
+  radxa@rock-5c:~$ gpioinfo  
+gpiochip0 - 32 lines:
+        line   0:      unnamed "wifibt-power" output active-high [used]
+        line   7:      unnamed  "interrupt"   input  active-high [used]
+        line  13:      "PIN_8"       unused   input  active-high 
+        line  14:     "PIN_10"       unused   input  active-high 
+        line  21:      unnamed "vcc3v3-pcie" output active-high [used]
+        line  23:     "PIN_27"       unused   input  active-high 
+        line  24:     "PIN_28"       unused   input  active-high 
+        line  28:      unnamed "vcc5v0-otg-regulator" output active-high [used]
+gpiochip1 - 32 lines:
+        line   0:     "PIN_21"       unused   input  active-high 
+        line   1:     "PIN_19"       unused   input  active-high 
+        line   2:     "PIN_23"       unused   input  active-high 
+        line   3:     "PIN_24"       unused   input  active-high 
+        line   4:     "PIN_26"       unused   input  active-high 
+        line   5:     "PIN_16"       unused  output  active-high 
+        line   8:     "PIN_18"       unused   input  active-high 
+        line   9:     "PIN_31"       unused   input  active-high 
+        line  10:     "PIN_29"       unused   input  active-high 
+        line  11:      "PIN_7"       unused   input  active-high 
+        line  12:     "PIN_33"       unused   input  active-high 
+        line  13:     "PIN_22"       unused   input  active-high 
+        line  21:      unnamed   "i2s-lrck"   input  active-high [used]
+        line  30:      "PIN_5"       unused   input  active-high 
+        line  31:      "PIN_3"       unused   input  active-high 
+gpiochip2 - 32 lines:
+gpiochip3 - 32 lines:
+        line  20:      unnamed  "user-led1"  output  active-high [used]
+        line  25:      unnamed      "reset"  output  active-high [used]
+        line  29:      unnamed  "user-led2"  output  active-high [used]
+gpiochip4 - 32 lines:
+        line   0:     "PIN_35"       unused   input  active-high 
+        line   1:     "PIN_12"       unused   input  active-high 
+        line   2:     "PIN_36"       unused   input  active-high 
+        line   3:      unnamed    "vcc-5v0"  output  active-high [used]
+        line   5:     "PIN_38"       unused   input  active-high 
+        line   8:     "PIN_32"       unused   input  active-high 
+        line   9:     "PIN_40"       unused   input  active-high 
+        line  10:     "PIN_13"       unused   input  active-high 
+        line  11:     "PIN_11"       unused   input  active-high 
+        line  12:     "PIN_15"       unused   input  active-high 
+        line  13:      unnamed "vcc5v0-host-regulator" output active-high [used]
+        line  14:      unnamed     "enable"  output  active-high [used]
+gpiochip5 - 3 lines:
+  ```
+</details>
+
