@@ -1,7 +1,7 @@
 # radxa-penta package
 All testing is done on a *RADXA Rock 5C v1.1 Rockchip RK3588S*
 
-### Reimplmentation of the [rockpi-penta](https://github.com/radxa/rockpi-penta) control program by radxa for the [RADXA Penta SATA Top Board](https://radxa.com/products/accessories/penta-sata-top-board).
+### Reimplementation of the [rockpi-penta](https://github.com/radxa/rockpi-penta) control program by radxa for the [RADXA Penta SATA Top Board](https://radxa.com/products/accessories/penta-sata-top-board).
 
 ![Radxa SATA HAT Top Board](https://radxa.com/storage-expansion/ra005-tb/marked_penta_sata_top_board.webp "Radxa SATA HAT Top Board")
 
@@ -35,10 +35,35 @@ clang-format and clang-tidy copied from [ken-matsui](https://github.com/ken-mats
 
 ### Hardware
 
+> There are usually 5 groups (also called banks) of GPIOs on the Rockchip platform: GPIO0 ~ GPIO4 (varies from chip to chip), each group has 32 GPIOs.
+> 
+> Each group of GPIOs is divided into 4 groups, A/B/C/D, with 8 GPIOs in each group (0~7, also called bank_idx).
+> 
+> So the GPIOs can be named from GPIO0_A0 to GPIO4_D7. Taking GPIO3_C5 as an example, we can deduce that its bank is 3 and its bank_idx is 21, i.e. GPIO3_C5 is the 21st GPIO in group 3.
+> 
+> The GPIO bank of Rockchip platform corresponds to gpiochip in libgpiod, and bank_idx corresponds to gpio line. Take GPIO3_C5 as an example, it is in libgpiod, gpiochip is 3 and line is 21.
+> 
+
 https://docs.radxa.com/en/rock5/rock5c/hardware-design/hardware-interface
 
+https://github.com/torvalds/linux/blob/master/include/dt-bindings/pinctrl/rockchip.h
+
+---
+
+```c
+SDA=
+SCL=
+OLED_RESET=
+PWMCHIP=
+BUTTON_CHIP=4
+BUTTON_LINE=11
+HARDWARE_PWM=
+```
+
+---
+
 <details>
-  <summary>40 PIN GPIO Header</summary>
+  <summary>GPIO header info (doc)</summary>
 
   ### GPIO voltage
   
@@ -74,10 +99,8 @@ https://docs.radxa.com/en/rock5/rock5c/hardware-design/hardware-interface
 
 </details>
 
-#### GPIO device info (libgpiod)
-
 <details>
-  <summary>Parsed output</summary>
+  <summary>GPIO device info (libgpiod)</summary>
   
   ##### gpiodetect
   
@@ -139,5 +162,11 @@ gpiochip4 - 32 lines:
         line  14:      unnamed     "enable"  output  active-high [used]
 gpiochip5 - 3 lines:
   ```
+
+```console
+radxa@rock-5c:~$ gpiomon gpiochip4 11
+event: FALLING EDGE offset: 11 timestamp: [   12241.064400391]
+event:  RISING EDGE offset: 11 timestamp: [   12241.289810264]
+```
 </details>
 
