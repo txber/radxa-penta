@@ -22,3 +22,12 @@ Checkout alteranative forks and reimplementations:
 Trying to solve radxa issue [#18](https://github.com/radxa/rockpi-penta/issues/18) for my test board.
 
 clang-format and clang-tidy copied from [ken-matsui](https://github.com/ken-matsui).
+
+**Features:**
+
+- [ ] Smart fan control
+- [ ] OLED display pages
+- [ ] Button navigation
+- [ ] Systemd integration with journal logging
+- [ ] SSD temperature monitoring
+
