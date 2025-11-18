@@ -44,6 +44,8 @@ clang-format and clang-tidy copied from [ken-matsui](https://github.com/ken-mats
 > The GPIO bank of Rockchip platform corresponds to gpiochip in libgpiod, and bank_idx corresponds to gpio line. Take GPIO3_C5 as an example, it is in libgpiod, gpiochip is 3 and line is 21.
 > 
 
+https://wiki.radxa.com/Penta_SATA_HAT
+
 https://docs.radxa.com/en/rock5/rock5c/hardware-design/hardware-interface
 
 https://github.com/torvalds/linux/blob/master/include/dt-bindings/pinctrl/rockchip.h
