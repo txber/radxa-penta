@@ -1,8 +1,5 @@
 # radxa-penta package
 
-> [!NOTE]
-> All testing is done on a *RADXA ROCK 5C v1.1 Rockchip RK3588S*
-> 
 > *UNDER DEVELOPMENT*
 
 ### Reimplementation of the [rockpi-penta](https://github.com/radxa/rockpi-penta) control program by radxa for the [RADXA Penta SATA Top Board](https://radxa.com/products/accessories/penta-sata-top-board).
@@ -37,11 +34,12 @@ clang-format and clang-tidy copied from [ken-matsui](https://github.com/ken-mats
 
 ### Hardware
 
-> [!WARNING]
-> The default fan has no PWM control.
-> ```lm_sensors```console does not detect any senors
->
-> Using **Noctua NF-A4X10 5V PWM** for further testing
+> [!NOTE]
+> All testing is done on a *RADXA ROCK 5C v1.1 Rockchip RK3588S*
+> 
+> With the default *XBY DC BRUSHLESS FAN BY401005MS* fan and a
+> 
+> *Noctua NF-A4X10 5V PWM* for further testing
 
 #### Sata head GPIO header info collection
   
