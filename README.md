@@ -36,8 +36,8 @@ Feel free to add files for additional hardware if tested.
 | SCL          | |
 | OLED_RESET   | |
 | PWMCHIP      | If HARDWARE_PWM set the chip number corresponding to /sys/class/pwm/pwmchip1/ (pwmchip1 == 1) |
-| BUTTON_CHIP  | Gpio chip ([Convert vendor gpio to libgpiod](https://docs.radxa.com/en/rock5/rock5c/app-development/gpiod?vendorTolibgpiod=Rockchip&lang=Python#convert-vendor-gpio-to-libgpiod) or use ```gpiofind PIN_#```console ) |
-| BUTTON_LINE  | Gpio line ([Convert vendor gpio to libgpiod](https://docs.radxa.com/en/rock5/rock5c/app-development/gpiod?vendorTolibgpiod=Rockchip&lang=Python#convert-vendor-gpio-to-libgpiod)) |
+| BUTTON_CHIP  | Gpio chip ([Convert vendor gpio to libgpiod](https://docs.radxa.com/en/rock5/rock5c/app-development/gpiod?vendorTolibgpiod=Rockchip&lang=Python#convert-vendor-gpio-to-libgpiod) or use ```gpiofind PIN_#```console) |
+| BUTTON_LINE  | Gpio line ([Convert vendor gpio to libgpiod](https://docs.radxa.com/en/rock5/rock5c/app-development/gpiod?vendorTolibgpiod=Rockchip&lang=Python#convert-vendor-gpio-to-libgpiod) or use ```gpiofind PIN_#```console) |
 | HARDWARE_PWM | Is the board hardware enabled? If yes set 1 |
 
 ### Hardware
