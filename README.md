@@ -37,8 +37,11 @@ clang-format and clang-tidy copied from [ken-matsui](https://github.com/ken-mats
 
 ### Hardware
 
->[!IMPORTANT]
-> The Penta SATA HAT is designed for ROCK Pi 4, one model only.
+> [!WARNING]
+> The default fan has no PWM control.
+> ```lm_sensors```console does not detect any senors
+>
+> Using **Noctua NF-A4X10 5V PWM** for further testing
 
 #### Sata head GPIO header info collection
   
