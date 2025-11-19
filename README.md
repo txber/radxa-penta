@@ -1,13 +1,15 @@
 # radxa-penta package
-All testing is done on a *RADXA Rock 5C v1.1 Rockchip RK3588S*
+
+> [!NOTE]
+> All testing is done on a *RADXA ROCK 5C v1.1 Rockchip RK3588S*
+> 
+> *UNDER DEVELOPMENT*
 
 ### Reimplementation of the [rockpi-penta](https://github.com/radxa/rockpi-penta) control program by radxa for the [RADXA Penta SATA Top Board](https://radxa.com/products/accessories/penta-sata-top-board).
 
 ![Radxa SATA HAT Top Board](https://radxa.com/storage-expansion/ra005-tb/marked_penta_sata_top_board.webp "Radxa SATA HAT Top Board")
 
 [Cabin](https://cabinpkg.com/) is used as the package manager in build system.
-> [!CAUTION]
-> Cabin is still under development and may contain a bunch of bugs.
 
 Using [lcdgfx](https://github.com/lexus2k/lcdgfx) for controlling the display.
 
@@ -35,14 +37,8 @@ clang-format and clang-tidy copied from [ken-matsui](https://github.com/ken-mats
 
 ### Hardware
 
-> There are usually 5 groups (also called banks) of GPIOs on the Rockchip platform: GPIO0 ~ GPIO4 (varies from chip to chip), each group has 32 GPIOs.
-> 
-> Each group of GPIOs is divided into 4 groups, A/B/C/D, with 8 GPIOs in each group (0~7, also called bank_idx).
-> 
-> So the GPIOs can be named from GPIO0_A0 to GPIO4_D7. Taking GPIO3_C5 as an example, we can deduce that its bank is 3 and its bank_idx is 21, i.e. GPIO3_C5 is the 21st GPIO in group 3.
-> 
-> The GPIO bank of Rockchip platform corresponds to gpiochip in libgpiod, and bank_idx corresponds to gpio line. Take GPIO3_C5 as an example, it is in libgpiod, gpiochip is 3 and line is 21.
-> 
+> [!IMPORTANT]
+> The Penta SATA HAT is designed for ROCK Pi 4, one model only. 
 
 https://wiki.radxa.com/Penta_SATA_HAT
 
@@ -65,7 +61,47 @@ HARDWARE_PWM=
 ---
 
 <details>
-  <summary>GPIO header info (doc)</summary>
+  <summary>GPIO header info sata head (wiki)</summary>
+
+  ### Pinout for 40PIN GPIO header
+  
+  |      Description     |  Function | Pin# | Pin# |   Function  | Description |
+  |:--------------------:|:---------:|:----:|:----:|:-----------:|:-----------:|
+  |                      |           | 1    | 2    | VCC5V0_SYS  |             |
+  | OLED I2C             | I2C_SDA   | 3    | 4    | VCC5V0_SYS  |             |
+  | OLED I2C             | I2C_SCL   | 5    | 6    |             |             |
+  |                      |           | 7    | 8    |             |             |
+  |                      |           | 9    | 10   |             |             |
+  | top board key        | GPIO4_C2  | 11   | 12   |             |             |
+  |                      | GPIO4_C6  | 13   | 14   |             |             |
+  |                      |           | 15   | 16   | GPIO4_D2    | reset OLED  |
+  |                      |           | 17   | 18   |             |             |
+  |                      |           | 19   | 20   |             |             |
+  |                      |           | 21   | 22   |             |             |
+  |                      |           | 23   | 24   |             |             |
+  |                      |           | 25   | 26   | ADC_IN0     | temperature |
+  |                      | SDA       | 27   | 28   | SCL         |             |
+  |                      |           | 29   | 30   |             |             |
+  |                      |           | 31   | 32   |             |             |
+  | control tb-fan speed | PWM\_33   | 33   | 34   |             |             |
+  |                      |           | 35   | 36   |             |             |
+  |                      |           | 37   | 38   |             |             |
+  |                      |           | 39   | 40   |             |             |
+  
+  ### Pinout for 2x5 PHD 2.0mm connector
+  
+  | Function | Pin# | Pin# | Function               |
+  |----------|------|------|------------------------|
+  | I2C_SDA  | 1    | 2    | VCC3V3_SYS             |
+  | I2C_SCL  | 3    | 4    | VCC5V0_SYS             |
+  | GPIO4_D2 | 5    | 6    | GPIO4_C2               |
+  | GND      | 7    | 8    | PWM_33 **OR** GPIO4_C6 |
+  | GND      | 9    | 10   | NC                     |
+  
+</details>
+
+<details>
+  <summary>GPIO header info rock 5c (doc)</summary>
 
   ### GPIO voltage
   
