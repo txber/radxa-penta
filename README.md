@@ -9,12 +9,12 @@
 
 ![Radxa SATA HAT Top Board](https://radxa.com/storage-expansion/ra005-tb/marked_penta_sata_top_board.webp "Radxa SATA HAT Top Board")
 
-[Cabin](https://cabinpkg.com/) is used as the package manager in build system.
+[Cabin](https://cabinpkg.com/) is used as package manager and build system.
 
 Using [lcdgfx](https://github.com/lexus2k/lcdgfx) for controlling the display.
 
 
-### Checkout alteranative forks and reimplementations:
+### Checkout alternative forks and reimplementations:
 
 - https://github.com/radxa/rockpi-penta
 - https://github.com/kYc0o/radxa-penta-sata-hat-top-board-ctrl-c
