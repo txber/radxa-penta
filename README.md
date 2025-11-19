@@ -25,15 +25,20 @@ Trying to solve radxa issue [#18](https://github.com/radxa/rockpi-penta/issues/1
 
 clang-format and clang-tidy copied from [ken-matsui](https://github.com/ken-matsui).
 
-**Features:**
+### Environment files
 
-- [ ] Smart fan control
-- [ ] OLED display pages
-- [ ] Button navigation
-- [ ] Systemd integration with journal logging
-- [ ] SSD temperature monitoring
-- [ ] Publish as compliant deb
+Each compatible hardware has a seperate environment [file](env/) to specify the relevant pinouts.
+Feel free to add files for additional hardware if tested.
 
+|      Key     | Function |
+|------------|--------|
+| SDA          | |
+| SCL          | |
+| OLED_RESET   | |
+| PWMCHIP      | If HARDWARE_PWM set the chip number corresponding to /sys/class/pwm/pwmchip1/ (pwmchip1 == 1) |
+| BUTTON_CHIP  | Gpio chip ([Convert vendor gpio to libgpiod](https://docs.radxa.com/en/rock5/rock5c/app-development/gpiod?vendorTolibgpiod=Rockchip&lang=Python#convert-vendor-gpio-to-libgpiod) or use ```gpiofind PIN_#```console ) |
+| BUTTON_LINE  | Gpio line ([Convert vendor gpio to libgpiod](https://docs.radxa.com/en/rock5/rock5c/app-development/gpiod?vendorTolibgpiod=Rockchip&lang=Python#convert-vendor-gpio-to-libgpiod)) |
+| HARDWARE_PWM | Is the board hardware enabled? If yes set 1 |
 
 ### Hardware
 
