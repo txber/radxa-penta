@@ -1,3 +1,6 @@
 # LSP config
 #
 .clangd
+
+# Meson
+/builddir
