@@ -1,5 +1,0 @@
-project = radxa-penta
-
-using version
-using config
-using dist
