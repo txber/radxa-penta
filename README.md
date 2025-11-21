@@ -11,7 +11,6 @@
 
 Using [lcdgfx](https://github.com/lexus2k/lcdgfx) for controlling the display.
 
-
 ### Checkout alternative forks and reimplementations:
 
 - https://github.com/radxa/rockpi-penta
@@ -30,15 +29,25 @@ Feel free to add files for additional hardware if tested.
 
 |      Key     | Function |
 |------------|--------|
-| SDA          | |
-| SCL          | |
-| OLED_RESET   | vendor gpio translated from ```gpiofind PIN_#``` according to pinout header info |
-| PWMCHIP      | If HARDWARE_PWM set the chip number corresponding to /sys/class/pwm/pwmchip1/ (pwmchip1 == 1) |
-| BUTTON_CHIP  | Gpio chip ([Convert vendor gpio to libgpiod](https://docs.radxa.com/en/rock5/rock5c/app-development/gpiod?vendorTolibgpiod=Rockchip&lang=Python#convert-vendor-gpio-to-libgpiod) or use ```gpiofind PIN_#```) |
-| BUTTON_LINE  | Gpio line ([Convert vendor gpio to libgpiod](https://docs.radxa.com/en/rock5/rock5c/app-development/gpiod?vendorTolibgpiod=Rockchip&lang=Python#convert-vendor-gpio-to-libgpiod) or use ```gpiofind PIN_#```) |
+| SDA          | Extract from ```/boot/dtbo/rk3588-i2c?-m?.dtbo```. |
+| SCL          | Extract from ```/boot/dtbo/rk3588-i2c?-m?.dtbo```. |
+| OLED_RESET   | Vendor gpio translated from ```gpiofind PIN_#``` according to pinout header info. |
+| PWMCHIP      | If HARDWARE_PWM set the chip number corresponding to /sys/class/pwm/pwmchip1/ (pwmchip1 == 1). |
+| BUTTON_CHIP  | Gpio chip ([Convert vendor gpio to libgpiod](https://docs.radxa.com/en/rock5/rock5c/app-development/gpiod?vendorTolibgpiod=Rockchip&lang=Python#convert-vendor-gpio-to-libgpiod) or use ```gpiofind PIN_#```). |
+| BUTTON_LINE  | Gpio line ([Convert vendor gpio to libgpiod](https://docs.radxa.com/en/rock5/rock5c/app-development/gpiod?vendorTolibgpiod=Rockchip&lang=Python#convert-vendor-gpio-to-libgpiod) or use ```gpiofind PIN_#```). |
 | HARDWARE_PWM | Is the board hardware pwm enabled? If yes set 1 |
 
 ### Hardware
+
+Could not get the pwm-fan kernel driver to work with the default fan on the radxa OS.
+Info related integrating a custom dts:
+
+    - https://forum.radxa.com/t/time-to-get-rid-of-these-userspace-pwm-fan-controll-shit/15077
+    - https://forum.radxa.com/t/guide-on-how-to-customize-you-pwm-fan-curve/17442
+    - https://forum.radxa.com/t/guide-how-to-make-the-rock-5b-fan-work-properly-joshua-rieks-ubuntu-24-04/20836
+
+On radxa OS you need to use ```dtc``` to compile the overlay and it manually to u-boot (https://github.com/Joshua-Riek/ubuntu-rockchip/discussions/686#discussioncomment-9064653).
+With armbian you can use ```armbian-add-overlay```.
 
 >[!IMPORTANT]
 > The Penta SATA HAT is designed for ROCK Pi 4, one model only.
@@ -75,8 +84,8 @@ Feel free to add files for additional hardware if tested.
 |      Description     |  Function | Pin# | Pin# |   Function  | Description |
 |:--------------------:|:---------:|:----:|:----:|:-----------:|:-----------:|
 |                      |           | 1    | 2    |             |             |
-|                      |           | 3    | 4    |             |             |
-|                      |           | 5    | 6    |             |             |
+|                      | I2C_SDA   | 3    | 4    |             |             |
+|                      | I2C_SCL   | 5    | 6    |             |             |
 |                      |           | 7    | 8    |             |             |
 |                      |           | 9    | 10   |             |             |
 | top board key        | GPIO4_B3  | 11   | 12   |             |             |
