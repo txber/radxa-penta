@@ -39,7 +39,6 @@ Feel free to add files for additional hardware if tested.
 
 ### Hardware
 
-Could not get the pwm-fan kernel driver to work with the default fan on the radxa OS.
 Info related integrating a custom dts:
 
 - https://forum.radxa.com/t/time-to-get-rid-of-these-userspace-pwm-fan-controll-shit/15077
