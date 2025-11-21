@@ -42,11 +42,12 @@ Feel free to add files for additional hardware if tested.
 Could not get the pwm-fan kernel driver to work with the default fan on the radxa OS.
 Info related integrating a custom dts:
 
-    - https://forum.radxa.com/t/time-to-get-rid-of-these-userspace-pwm-fan-controll-shit/15077
-    - https://forum.radxa.com/t/guide-on-how-to-customize-you-pwm-fan-curve/17442
-    - https://forum.radxa.com/t/guide-how-to-make-the-rock-5b-fan-work-properly-joshua-rieks-ubuntu-24-04/20836
+- https://forum.radxa.com/t/time-to-get-rid-of-these-userspace-pwm-fan-controll-shit/15077
+- https://forum.radxa.com/t/guide-on-how-to-customize-you-pwm-fan-curve/17442
+- https://forum.radxa.com/t/guide-how-to-make-the-rock-5b-fan-work-properly-joshua-rieks-ubuntu-24-04/20836
 
 On radxa OS you need to use ```dtc``` to compile the overlay and it manually to u-boot (https://github.com/Joshua-Riek/ubuntu-rockchip/discussions/686#discussioncomment-9064653).
+
 With armbian you can use ```armbian-add-overlay```.
 
 >[!IMPORTANT]
