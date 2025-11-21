@@ -1,3 +1,5 @@
 .clangd
 /builddir
 .vscode/
+.venv
+uv.lock
