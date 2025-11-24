@@ -11,6 +11,8 @@
 
 ### Checkout alternative forks and reimplementations:
 
+- https://github.com/txber/rockpi-penta
+-
 - https://github.com/radxa/rockpi-penta
 - https://github.com/kYc0o/radxa-penta-sata-hat-top-board-ctrl-c
 - https://github.com/Pudel-des-Todes/rockpi-penta
