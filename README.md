@@ -9,8 +9,6 @@
 
 ![Radxa SATA HAT Top Board](https://radxa.com/storage-expansion/ra005-tb/marked_penta_sata_top_board.webp "Radxa SATA HAT Top Board")
 
-Using [lcdgfx](https://github.com/lexus2k/lcdgfx) for controlling the display.
-
 ### Checkout alternative forks and reimplementations:
 
 - https://github.com/radxa/rockpi-penta
@@ -20,8 +18,6 @@ Using [lcdgfx](https://github.com/lexus2k/lcdgfx) for controlling the display.
 
 Trying to solve radxa issue [#18](https://github.com/radxa/rockpi-penta/issues/18) for my test board.
 
-clang-format and clang-tidy copied from [ken-matsui](https://github.com/ken-matsui).
-
 ### Environment files
 
 Each compatible hardware has a seperate environment [file](env/) to specify the relevant pinouts.
@@ -29,13 +25,35 @@ Feel free to add files for additional hardware if tested.
 
 |      Key     | Function |
 |------------|--------|
-| SDA          | Extract from ```/boot/dtbo/rk3588-i2c?-m?.dtbo```. |
-| SCL          | Extract from ```/boot/dtbo/rk3588-i2c?-m?.dtbo```. |
+| SDA          | See below. |
+| SCL          | See below. |
 | OLED_RESET   | Vendor gpio translated from ```gpiofind PIN_#``` according to pinout header info. |
 | PWMCHIP      | If HARDWARE_PWM set the chip number corresponding to /sys/class/pwm/pwmchip1/ (pwmchip1 == 1). |
 | BUTTON_CHIP  | Gpio chip ([Convert vendor gpio to libgpiod](https://docs.radxa.com/en/rock5/rock5c/app-development/gpiod?vendorTolibgpiod=Rockchip&lang=Python#convert-vendor-gpio-to-libgpiod) or use ```gpiofind PIN_#```). |
 | BUTTON_LINE  | Gpio line ([Convert vendor gpio to libgpiod](https://docs.radxa.com/en/rock5/rock5c/app-development/gpiod?vendorTolibgpiod=Rockchip&lang=Python#convert-vendor-gpio-to-libgpiod) or use ```gpiofind PIN_#```). |
 | HARDWARE_PWM | Is the board hardware pwm enabled? If yes set 1 |
+
+Find the correct SDA/SCL value:
+Check which values are available: grep I2C ```/usr/local/lib/python3.YOURVERSION/dist-packages/adafruit_blinka/board/radxa/YOURMODEL.py```.
+Get info about your i2c config:
+```bash
+for i in $(ls /dev/i2c* | sed 's/\/dev\/i2c-//')
+do
+  echo "Bus $i:"
+  sudo i2cdetect -y $i
+done
+```
+
+```bash
+ls /dev/i2c*
+```
+
+If you are on armbian you can also check:
+```/boot/armbianEnv.txt```
+
+Decompile the matching dtb to dts and check the entries.
+```/boot/dtb-vendor.../rockchip/rk...``` or ```/boot/dtbo/rk...```
+
 
 ### Hardware
 
