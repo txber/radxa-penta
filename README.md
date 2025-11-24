@@ -45,7 +45,7 @@ Info related integrating a custom dts:
 - https://forum.radxa.com/t/guide-on-how-to-customize-you-pwm-fan-curve/17442
 - https://forum.radxa.com/t/guide-how-to-make-the-rock-5b-fan-work-properly-joshua-rieks-ubuntu-24-04/20836
 
-On radxa OS you need to use ```dtc``` to compile the overlay and it manually to u-boot (https://github.com/Joshua-Riek/ubuntu-rockchip/discussions/686#discussioncomment-9064653).
+On radxa OS you need to use ```dtc``` to compile the overlay and it manually add it via u-boot (https://github.com/Joshua-Riek/ubuntu-rockchip/discussions/686#discussioncomment-9064653).
 
 With armbian you can use ```armbian-add-overlay```.
 
