@@ -12,11 +12,11 @@
 ### Checkout alternative forks and reimplementations:
 
 - https://github.com/txber/rockpi-penta
--
+
 - https://github.com/radxa/rockpi-penta
-- https://github.com/kYc0o/radxa-penta-sata-hat-top-board-ctrl-c
-- https://github.com/Pudel-des-Todes/rockpi-penta
-- https://github.com/andrewheberle/rockpi-penta
+ https://github.com/kYc0o/radxa-penta-sata-hat-top-board-ctrl-c
+ https://github.com/Pudel-des-Todes/rockpi-penta
+ https://github.com/andrewheberle/rockpi-penta
 
 Trying to solve radxa issue [#18](https://github.com/radxa/rockpi-penta/issues/18) for my test board.
 
